@@ -21,6 +21,8 @@ class AudioEngine(QObject):
     track_finished = Signal()
     error_occurred = Signal(str)
     volume_changed = Signal(int)
+    position_changed = Signal(float)  # seconds
+    duration_changed = Signal(float)  # seconds
 
     _GZIP_EXTS = {".vgz"}
 
@@ -45,6 +47,18 @@ class AudioEngine(QObject):
         if self.player:
             self.event_manager = self.player.event_manager()
             self.event_manager.event_attach(vlc.EventType.MediaPlayerEndReached, self._on_end_reached)
+            self.event_manager.event_attach(vlc.EventType.MediaPlayerPositionChanged, self._on_position_changed)
+            self.event_manager.event_attach(vlc.EventType.MediaPlayerLengthChanged, self._on_length_changed)
+
+    def _on_position_changed(self, event):
+        if self.player:
+            time_ms = self.player.get_time()
+            self.position_changed.emit(time_ms / 1000.0)
+
+    def _on_length_changed(self, event):
+        if self.player:
+            length_ms = self.player.get_length()
+            self.duration_changed.emit(length_ms / 1000.0)
 
     def _on_end_reached(self, event):
         self.track_finished.emit()
