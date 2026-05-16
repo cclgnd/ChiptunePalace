@@ -64,7 +64,7 @@ class WebScraperService:
             for a in soup.find_all('a', href=re.compile(r'/packs/system/')):
                 name = a.text.strip()
                 href = a.get('href')
-                if name and not name.isdigit():
+                if name and not name.isdigit() and "PACKS" not in name.upper():
                     if not href.startswith('http'):
                         href = "https://vgmrips.net" + href
                     consoles.append({"name": name, "url": href})
@@ -209,6 +209,39 @@ class WebScraperService:
         except Exception as e:
             print(f"ModArchive Search Error: {e}")
             
+        # 3. Search Project 2612
+        try:
+            results.extend(self._search_project2612(query))
+        except Exception as e:
+            print(f"Project 2612 Search Error: {e}")
+            
+        return results
+
+    def _search_project2612(self, query: str) -> list:
+        import requests
+        from bs4 import BeautifulSoup
+        url = f"http://project2612.org/search.php?query={query}"
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        results = []
+        # Project 2612 search results are usually in a table
+        for a in soup.find_all('a', href=lambda x: x and 'details.php?id=' in x):
+            title = a.text.strip()
+            detail_url = "http://project2612.org/" + a.get('href')
+            # Extract ID to build download link (usually download.php?id=...)
+            import re
+            match = re.search(r'id=(\d+)', detail_url)
+            if match:
+                track_id = match.group(1)
+                zip_url = f"http://project2612.org/download.php?id={track_id}"
+                results.append({
+                    "title": title,
+                    "url": zip_url,
+                    "artist": "Sega Genesis",
+                    "source": "Project2612"
+                })
         return results
 
     def _search_vgmrips(self, query: str) -> list:
