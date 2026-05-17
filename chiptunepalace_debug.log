@@ -1,0 +1,662 @@
+[2026-05-17 19:39:37,120] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:39:37,120] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:39:37,134] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,138] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,139] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,146] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Super Mario World (Title)', Game: 'Super Mario World', ID: 1
+[2026-05-17 19:39:37,148] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest', Game: 'Super Mario World', ID: 2
+[2026-05-17 19:39:37,151] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zelda', Game: 'Super Mario World', ID: 3
+[2026-05-17 19:39:37,153] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mario Bros', Game: 'Super Mario World', ID: 4
+[2026-05-17 19:39:37,154] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,155] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,155] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: test_interaction_button_click (Button=Play)
+[2026-05-17 19:39:37,156] [INFO] [ChiptunePalace] - Test System Info Message
+[2026-05-17 19:39:37,156] [WARNING] [ChiptunePalace] - Test System Warning Message
+[2026-05-17 19:39:37,156] [ERROR] [ChiptunePalace] - Test System Error Message
+[2026-05-17 19:39:37,157] [CRITICAL] [ChiptunePalace] - [UNCAUGHT_CRASH] Unhandled Exception:
+Traceback (most recent call last):
+  File "d:\CHIPTUNEPALACE\tests\test_debug_logging.py", line 58, in test_sys_exception_hook_capture
+    raise ValueError("Uncaught crash test exception!")
+ValueError: Uncaught crash test exception!
+
+[2026-05-17 19:39:37,157] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:39:37,158] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,159] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,160] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,177] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,182] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Test Tune', Game: 'Unknown Game', ID: 1
+[2026-05-17 19:39:37,182] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,183] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,188] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,188] [INFO] [ChiptunePalace] - DatabaseManager: Duplicate found by file path & member! ID: 1
+[2026-05-17 19:39:37,196] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=/mock/path/test.vgm member=None
+[2026-05-17 19:39:37,197] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_e8_8evz3.wav', 'C:\\mock\\path\\test.vgm']
+[2026-05-17 19:39:37,210] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_e8_8evz3.wav', 'C:\\mock\\path\\test.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:39:37,224] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,224] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,224] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,225] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,230] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,244] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,246] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:37,250] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,250] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,250] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,251] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,265] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,275] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,294] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:37,306] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,306] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,306] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,307] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,313] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,321] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,322] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:37,324] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,324] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,325] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,325] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,331] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,340] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,342] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:37,343] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,344] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,344] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,344] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,350] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,359] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,363] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:37,367] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:37,367] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:37,367] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:37,368] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:37,373] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:37,381] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:37,382] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:40,017] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:39:40,017] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: test_interaction_button_click (Button=Play)
+[2026-05-17 19:39:40,017] [INFO] [ChiptunePalace] - Test System Info Message
+[2026-05-17 19:39:40,017] [WARNING] [ChiptunePalace] - Test System Warning Message
+[2026-05-17 19:39:40,017] [ERROR] [ChiptunePalace] - Test System Error Message
+[2026-05-17 19:39:40,018] [CRITICAL] [ChiptunePalace] - [UNCAUGHT_CRASH] Unhandled Exception:
+Traceback (most recent call last):
+  File "d:\CHIPTUNEPALACE\tests\test_debug_logging.py", line 58, in test_sys_exception_hook_capture
+    raise ValueError("Uncaught crash test exception!")
+ValueError: Uncaught crash test exception!
+
+[2026-05-17 19:39:43,275] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:39:43,275] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:39:43,290] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,294] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,295] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,304] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Super Mario World (Title)', Game: 'Super Mario World', ID: 1
+[2026-05-17 19:39:43,306] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest', Game: 'Super Mario World', ID: 2
+[2026-05-17 19:39:43,309] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zelda', Game: 'Super Mario World', ID: 3
+[2026-05-17 19:39:43,311] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mario Bros', Game: 'Super Mario World', ID: 4
+[2026-05-17 19:39:43,313] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,314] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,315] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: test_interaction_button_click (Button=Play)
+[2026-05-17 19:39:43,315] [INFO] [ChiptunePalace] - Test System Info Message
+[2026-05-17 19:39:43,315] [WARNING] [ChiptunePalace] - Test System Warning Message
+[2026-05-17 19:39:43,315] [ERROR] [ChiptunePalace] - Test System Error Message
+[2026-05-17 19:39:43,316] [CRITICAL] [ChiptunePalace] - [UNCAUGHT_CRASH] Unhandled Exception:
+Traceback (most recent call last):
+  File "d:\CHIPTUNEPALACE\tests\test_debug_logging.py", line 58, in test_sys_exception_hook_capture
+    raise ValueError("Uncaught crash test exception!")
+ValueError: Uncaught crash test exception!
+
+[2026-05-17 19:39:43,316] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:39:43,317] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,319] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,319] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,337] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,341] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Test Tune', Game: 'Unknown Game', ID: 1
+[2026-05-17 19:39:43,341] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,342] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,347] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,348] [INFO] [ChiptunePalace] - DatabaseManager: Duplicate found by file path & member! ID: 1
+[2026-05-17 19:39:43,348] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=/mock/path/test.vgm member=None
+[2026-05-17 19:39:43,349] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_uaq6sfy4.wav', 'C:\\mock\\path\\test.vgm']
+[2026-05-17 19:39:43,360] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_uaq6sfy4.wav', 'C:\\mock\\path\\test.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:39:43,374] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,374] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,374] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,375] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,381] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,394] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,399] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:43,403] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,403] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,403] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,404] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,418] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,428] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,446] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:43,457] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,458] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,458] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,458] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,464] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,472] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,473] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:43,475] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,475] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,475] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,476] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,481] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,490] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,491] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:43,493] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,493] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,493] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,494] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,499] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,509] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,513] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:39:43,517] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:39:43,517] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:39:43,517] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:39:43,518] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:39:43,523] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:39:43,532] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:39:43,533] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:40:05,789] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: D:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:40:05,789] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:40:05,789] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:40:05,790] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=D:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:40:05,799] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:40:05,815] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:40:05,830] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:40:05,830] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 100%)
+[2026-05-17 19:40:05,830] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:40:21,803] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Round Start', Game: 'Gokuraku! Chuuka Taisen', ID: 451
+[2026-05-17 19:40:21,806] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mt. Gogyo (Round 1)', Game: 'Gokuraku! Chuuka Taisen', ID: 452
+[2026-05-17 19:40:21,808] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shop', Game: 'Gokuraku! Chuuka Taisen', ID: 453
+[2026-05-17 19:40:21,810] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Koh River (Round 2)', Game: 'Gokuraku! Chuuka Taisen', ID: 454
+[2026-05-17 19:40:21,812] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Great Wall (Round 3)', Game: 'Gokuraku! Chuuka Taisen', ID: 455
+[2026-05-17 19:40:21,815] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mt. Tai (Round 4)', Game: 'Gokuraku! Chuuka Taisen', ID: 456
+[2026-05-17 19:40:21,817] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Buddha's Heaven (Round 5)', Game: 'Gokuraku! Chuuka Taisen', ID: 457
+[2026-05-17 19:40:21,819] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'To The Ground Again (Round 6)', Game: 'Gokuraku! Chuuka Taisen', ID: 458
+[2026-05-17 19:40:21,821] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss', Game: 'Gokuraku! Chuuka Taisen', ID: 459
+[2026-05-17 19:40:21,824] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ending', Game: 'Gokuraku! Chuuka Taisen', ID: 460
+[2026-05-17 19:40:21,826] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: 'Gokuraku! Chuuka Taisen', ID: 461
+[2026-05-17 19:40:21,829] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Continue', Game: 'Gokuraku! Chuuka Taisen', ID: 462
+[2026-05-17 19:40:21,830] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Gokuraku!_Chuuka_Taisen_(TG-16).zip member=01 Round Start.vgz
+[2026-05-17 19:40:21,832] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_k74youiw.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_mwah5r1c.vgm']
+[2026-05-17 19:40:21,868] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_k74youiw.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_mwah5r1c.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:40:21,873] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_k74youiw.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_mwah5r1c.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:40:21,873] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:40:26,140] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Passage of Ocean', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 463
+[2026-05-17 19:40:26,142] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Misfortune Hunch', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 464
+[2026-05-17 19:40:26,144] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Peaceful Enclosure', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 465
+[2026-05-17 19:40:26,147] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Acquisition', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 466
+[2026-05-17 19:40:26,150] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Pleasant Estimation', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 467
+[2026-05-17 19:40:26,152] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Scattered Islands', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 468
+[2026-05-17 19:40:26,154] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Extremity Fear', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 469
+[2026-05-17 19:40:26,157] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shipwreck', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 470
+[2026-05-17 19:40:26,159] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Formation', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 471
+[2026-05-17 19:40:26,161] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'First Attack', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 472
+[2026-05-17 19:40:26,163] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Triumphal Song', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 473
+[2026-05-17 19:40:26,166] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Big Storm', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 474
+[2026-05-17 19:40:26,168] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Big Storm (inside)', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 475
+[2026-05-17 19:40:26,170] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Sea Breeze Town', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 476
+[2026-05-17 19:40:26,173] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'A Day of Love', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 477
+[2026-05-17 19:40:26,176] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Moderation Tears', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 478
+[2026-05-17 19:40:26,178] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Fertile Plain', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 479
+[2026-05-17 19:40:26,180] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Over the Desert', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 480
+[2026-05-17 19:40:26,182] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ancient Relics', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 481
+[2026-05-17 19:40:26,185] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Brave of Blaze', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 482
+[2026-05-17 19:40:26,187] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest of Shudder', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 483
+[2026-05-17 19:40:26,189] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Apparition Trees', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 484
+[2026-05-17 19:40:26,191] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Weird Air', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 485
+[2026-05-17 19:40:26,194] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Idleness Sleep', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 486
+[2026-05-17 19:40:26,196] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'At Your Departure', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 487
+[2026-05-17 19:40:26,198] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Underground Water Course', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 488
+[2026-05-17 19:40:26,200] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Immovable Fossil', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 489
+[2026-05-17 19:40:26,204] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'In Her Mind', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 490
+[2026-05-17 19:40:26,206] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Magnificent Street', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 491
+[2026-05-17 19:40:26,208] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Elegance Residence', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 492
+[2026-05-17 19:40:26,210] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Powdery Snow', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 493
+[2026-05-17 19:40:26,213] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Heart Warm', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 494
+[2026-05-17 19:40:26,215] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Vast & Sever', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 495
+[2026-05-17 19:40:26,218] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mist Land', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 496
+[2026-05-17 19:40:26,220] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Break Through', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 497
+[2026-05-17 19:40:26,223] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Retreat', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 498
+[2026-05-17 19:40:26,225] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bad Past', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 499
+[2026-05-17 19:40:26,227] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Missing Is...', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 500
+[2026-05-17 19:40:26,229] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Calm Reception', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 501
+[2026-05-17 19:40:26,232] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Crystal Valley', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 502
+[2026-05-17 19:40:26,234] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Heavenly Praise', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 503
+[2026-05-17 19:40:26,236] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'One's Last Moment', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 504
+[2026-05-17 19:40:26,238] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Blind Man', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 505
+[2026-05-17 19:40:26,241] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Cave of Ocean Floor', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 506
+[2026-05-17 19:40:26,244] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tragedy Knight', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 507
+[2026-05-17 19:40:26,246] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Hard Pressure', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 508
+[2026-05-17 19:40:26,248] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Evil's Supremacy', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 509
+[2026-05-17 19:40:26,251] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Into the Dark', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 510
+[2026-05-17 19:40:26,253] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Throne of Close', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 511
+[2026-05-17 19:40:26,255] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Slash For Chap', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 512
+[2026-05-17 19:40:26,257] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Down to the Abyss', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 513
+[2026-05-17 19:40:26,260] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Happy-Go-Lucky', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 514
+[2026-05-17 19:40:26,262] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Supremacy Title', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 515
+[2026-05-17 19:40:26,264] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'A Man Travelling Alone [hidden]', Game: 'Kaze no Densetsu Xanadu II (aka: The Legend of Xanadu II)', ID: 516
+[2026-05-17 19:40:26,266] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Kaze_no_Densetsu_Xanadu_II_(TG-CD).zip member=12 Big Storm.vgz
+[2026-05-17 19:40:26,268] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_pl1xha7m.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ra_kpajk.vgm']
+[2026-05-17 19:40:26,305] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_pl1xha7m.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ra_kpajk.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:40:26,310] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_pl1xha7m.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ra_kpajk.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:40:26,311] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:40:30,998] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Menu - Marvin's Theme', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 517
+[2026-05-17 19:40:31,000] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'File Select - Underground', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 518
+[2026-05-17 19:40:31,003] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest A - Happy', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 519
+[2026-05-17 19:40:31,006] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss Battle - Tetrski', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 520
+[2026-05-17 19:40:31,008] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest B - Yosemite Sam's Ship - Action', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 521
+[2026-05-17 19:40:31,010] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Witch's House - Suspense', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 522
+[2026-05-17 19:40:31,012] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Indoors - Menu (Beta) - Ending (Beta)', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 523
+[2026-05-17 19:40:31,015] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The High Seas', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 524
+[2026-05-17 19:40:31,017] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Island - Pursuit', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 525
+[2026-05-17 19:40:31,019] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Three Bears' Carnival - Enchanted', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 526
+[2026-05-17 19:40:31,021] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Looney Tunes Intro (Unused)', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 527
+[2026-05-17 19:40:31,024] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: 'Looney Tunes Collector - Alert! (U) / Martian Alert! (E) / Marvin Strikes Back! (U) / Martian Revenge! (E)', ID: 528
+[2026-05-17 19:40:31,025] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Looney_Tunes_Collector_-_Alert!_(Nintendo_Game_Boy_Color).zip member=04 Boss Battle - Tetrski.vgz
+[2026-05-17 19:40:31,028] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_txydzi1i.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ugchvu8_.vgm']
+[2026-05-17 19:40:31,068] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_txydzi1i.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ugchvu8_.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:40:31,073] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_txydzi1i.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_ugchvu8_.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:40:31,073] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:40:32,433] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,479] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:49:34,479] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:49:34,494] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,499] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,500] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,510] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Super Mario World (Title)', Game: 'Super Mario World', ID: 1
+[2026-05-17 19:49:34,513] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Forest', Game: 'Super Mario World', ID: 2
+[2026-05-17 19:49:34,515] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zelda', Game: 'Super Mario World', ID: 3
+[2026-05-17 19:49:34,518] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mario Bros', Game: 'Super Mario World', ID: 4
+[2026-05-17 19:49:34,519] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,520] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,521] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: test_interaction_button_click (Button=Play)
+[2026-05-17 19:49:34,521] [INFO] [ChiptunePalace] - Test System Info Message
+[2026-05-17 19:49:34,521] [WARNING] [ChiptunePalace] - Test System Warning Message
+[2026-05-17 19:49:34,521] [ERROR] [ChiptunePalace] - Test System Error Message
+[2026-05-17 19:49:34,522] [CRITICAL] [ChiptunePalace] - [UNCAUGHT_CRASH] Unhandled Exception:
+Traceback (most recent call last):
+  File "d:\CHIPTUNEPALACE\tests\test_debug_logging.py", line 58, in test_sys_exception_hook_capture
+    raise ValueError("Uncaught crash test exception!")
+ValueError: Uncaught crash test exception!
+
+[2026-05-17 19:49:34,523] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/test.db
+[2026-05-17 19:49:34,523] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,526] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,527] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,545] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,549] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Test Tune', Game: 'Unknown Game', ID: 1
+[2026-05-17 19:49:34,550] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,550] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,556] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,556] [INFO] [ChiptunePalace] - DatabaseManager: Duplicate found by file path & member! ID: 1
+[2026-05-17 19:49:34,557] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=/mock/path/test.vgm member=None
+[2026-05-17 19:49:34,558] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_v55kbewa.wav', 'C:\\mock\\path\\test.vgm']
+[2026-05-17 19:49:34,570] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['d:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_v55kbewa.wav', 'C:\\mock\\path\\test.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:49:34,584] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,584] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,584] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,585] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,591] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,605] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,609] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,613] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,613] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,613] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,614] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,628] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,638] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,657] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,669] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,669] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,669] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,669] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,675] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,683] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,684] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,686] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,686] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,686] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,687] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,692] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,703] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,704] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,706] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,706] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,706] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,707] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,712] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,722] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,726] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:34,730] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:34,730] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:34,730] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=d:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:34,731] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:34,736] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:34,744] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 80%
+[2026-05-17 19:49:34,745] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:49:55,300] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: D:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:49:55,300] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:49:55,301] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:49:55,301] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=D:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:49:55,311] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:49:55,327] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:49:55,341] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:49:55,342] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:50:04,894] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Arsys Logo', Game: 'Star Cruiser II -The Odysseus Project-', ID: 529
+[2026-05-17 19:50:04,898] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Opening', Game: 'Star Cruiser II -The Odysseus Project-', ID: 530
+[2026-05-17 19:50:04,900] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Star Cruiser Title', Game: 'Star Cruiser II -The Odysseus Project-', ID: 531
+[2026-05-17 19:50:04,902] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'VOID Battle Theme', Game: 'Star Cruiser II -The Odysseus Project-', ID: 532
+[2026-05-17 19:50:04,904] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Narration', Game: 'Star Cruiser II -The Odysseus Project-', ID: 533
+[2026-05-17 19:50:04,907] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Far Away Departure', Game: 'Star Cruiser II -The Odysseus Project-', ID: 534
+[2026-05-17 19:50:04,909] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Prince', Game: 'Star Cruiser II -The Odysseus Project-', ID: 535
+[2026-05-17 19:50:04,911] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Area 1', Game: 'Star Cruiser II -The Odysseus Project-', ID: 536
+[2026-05-17 19:50:04,913] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Theme of Broken Heart', Game: 'Star Cruiser II -The Odysseus Project-', ID: 537
+[2026-05-17 19:50:04,916] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Theme of Departure', Game: 'Star Cruiser II -The Odysseus Project-', ID: 538
+[2026-05-17 19:50:04,918] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Dionica I', Game: 'Star Cruiser II -The Odysseus Project-', ID: 539
+[2026-05-17 19:50:04,920] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: 'Star Cruiser II -The Odysseus Project-', ID: 540
+[2026-05-17 19:50:04,923] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Fleet Warp', Game: 'Star Cruiser II -The Odysseus Project-', ID: 541
+[2026-05-17 19:50:04,926] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Base', Game: 'Star Cruiser II -The Odysseus Project-', ID: 542
+[2026-05-17 19:50:04,928] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Anxiety Theme #1', Game: 'Star Cruiser II -The Odysseus Project-', ID: 543
+[2026-05-17 19:50:04,930] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Snow Land', Game: 'Star Cruiser II -The Odysseus Project-', ID: 544
+[2026-05-17 19:50:04,932] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'I Cannot Trust Any of Them', Game: 'Star Cruiser II -The Odysseus Project-', ID: 545
+[2026-05-17 19:50:04,935] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Space Flight', Game: 'Star Cruiser II -The Odysseus Project-', ID: 546
+[2026-05-17 19:50:04,937] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Uni', Game: 'Star Cruiser II -The Odysseus Project-', ID: 547
+[2026-05-17 19:50:04,939] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ground Battle Theme #1', Game: 'Star Cruiser II -The Odysseus Project-', ID: 548
+[2026-05-17 19:50:04,941] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Morale Boost', Game: 'Star Cruiser II -The Odysseus Project-', ID: 549
+[2026-05-17 19:50:04,944] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ground Battle Theme #2', Game: 'Star Cruiser II -The Odysseus Project-', ID: 550
+[2026-05-17 19:50:04,946] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'White Comet', Game: 'Star Cruiser II -The Odysseus Project-', ID: 551
+[2026-05-17 19:50:04,948] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bar', Game: 'Star Cruiser II -The Odysseus Project-', ID: 552
+[2026-05-17 19:50:04,950] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Anxiety Theme #2', Game: 'Star Cruiser II -The Odysseus Project-', ID: 553
+[2026-05-17 19:50:04,953] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shipboard SFX', Game: 'Star Cruiser II -The Odysseus Project-', ID: 554
+[2026-05-17 19:50:04,955] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shop 1', Game: 'Star Cruiser II -The Odysseus Project-', ID: 555
+[2026-05-17 19:50:04,957] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shop 2', Game: 'Star Cruiser II -The Odysseus Project-', ID: 556
+[2026-05-17 19:50:04,959] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Energy Shop', Game: 'Star Cruiser II -The Odysseus Project-', ID: 557
+[2026-05-17 19:50:04,962] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Dangerous Zone', Game: 'Star Cruiser II -The Odysseus Project-', ID: 558
+[2026-05-17 19:50:04,964] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shocking', Game: 'Star Cruiser II -The Odysseus Project-', ID: 559
+[2026-05-17 19:50:04,966] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tension', Game: 'Star Cruiser II -The Odysseus Project-', ID: 560
+[2026-05-17 19:50:04,968] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'G-Catapult', Game: 'Star Cruiser II -The Odysseus Project-', ID: 561
+[2026-05-17 19:50:04,971] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Aquatic Life', Game: 'Star Cruiser II -The Odysseus Project-', ID: 562
+[2026-05-17 19:50:04,973] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Litanar Fleet', Game: 'Star Cruiser II -The Odysseus Project-', ID: 563
+[2026-05-17 19:50:04,975] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ground Battle Theme #3', Game: 'Star Cruiser II -The Odysseus Project-', ID: 564
+[2026-05-17 19:50:04,978] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Core', Game: 'Star Cruiser II -The Odysseus Project-', ID: 565
+[2026-05-17 19:50:04,980] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Woody Planet', Game: 'Star Cruiser II -The Odysseus Project-', ID: 566
+[2026-05-17 19:50:04,983] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Alien's Bar', Game: 'Star Cruiser II -The Odysseus Project-', ID: 567
+[2026-05-17 19:50:04,985] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Artificial City Planet', Game: 'Star Cruiser II -The Odysseus Project-', ID: 568
+[2026-05-17 19:50:04,987] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Center of Galaxy', Game: 'Star Cruiser II -The Odysseus Project-', ID: 569
+[2026-05-17 19:50:04,990] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Church', Game: 'Star Cruiser II -The Odysseus Project-', ID: 570
+[2026-05-17 19:50:04,992] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Area 2', Game: 'Star Cruiser II -The Odysseus Project-', ID: 571
+[2026-05-17 19:50:04,994] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Juke Box', Game: 'Star Cruiser II -The Odysseus Project-', ID: 572
+[2026-05-17 19:50:04,996] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Shine On (Ending Theme)', Game: 'Star Cruiser II -The Odysseus Project-', ID: 573
+[2026-05-17 19:50:04,999] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Explosion', Game: 'Star Cruiser II -The Odysseus Project-', ID: 574
+[2026-05-17 19:50:05,001] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Pre Nova', Game: 'Star Cruiser II -The Odysseus Project-', ID: 575
+[2026-05-17 19:50:05,003] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Dionica II', Game: 'Star Cruiser II -The Odysseus Project-', ID: 576
+[2026-05-17 19:50:05,005] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Powerful Blade', Game: 'Star Cruiser II -The Odysseus Project-', ID: 577
+[2026-05-17 19:50:05,008] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bio Punc', Game: 'Star Cruiser II -The Odysseus Project-', ID: 578
+[2026-05-17 19:50:05,010] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Star_Cruiser_II_-The_Odysseus_Project-_(NEC_PC-9801).zip member=28 Shop 2.vgz
+[2026-05-17 19:50:05,013] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_5kgsu3ll.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_nspqc5cc.vgm']
+[2026-05-17 19:50:05,048] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_5kgsu3ll.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_nspqc5cc.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:50:05,052] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_5kgsu3ll.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_nspqc5cc.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:50:05,053] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:50:13,085] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Town', Game: 'Fiend Hunter', ID: 579
+[2026-05-17 19:50:13,087] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bar', Game: 'Fiend Hunter', ID: 580
+[2026-05-17 19:50:13,089] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Flare 1', Game: 'Fiend Hunter', ID: 581
+[2026-05-17 19:50:13,092] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Flare 2', Game: 'Fiend Hunter', ID: 582
+[2026-05-17 19:50:13,094] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Beth', Game: 'Fiend Hunter', ID: 583
+[2026-05-17 19:50:13,096] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bander', Game: 'Fiend Hunter', ID: 584
+[2026-05-17 19:50:13,098] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Store', Game: 'Fiend Hunter', ID: 585
+[2026-05-17 19:50:13,102] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'A Boy Meets The Girl (Stage 1-1)', Game: 'Fiend Hunter', ID: 586
+[2026-05-17 19:50:13,104] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Item Obtained', Game: 'Fiend Hunter', ID: 587
+[2026-05-17 19:50:13,106] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Cave (Stage 1-2)', Game: 'Fiend Hunter', ID: 588
+[2026-05-17 19:50:13,108] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Flare Kidnapped', Game: 'Fiend Hunter', ID: 589
+[2026-05-17 19:50:13,111] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Giant Carriage (Stage 2)', Game: 'Fiend Hunter', ID: 590
+[2026-05-17 19:50:13,113] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bander's Death', Game: 'Fiend Hunter', ID: 591
+[2026-05-17 19:50:13,115] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mansion (Stage 3)', Game: 'Fiend Hunter', ID: 592
+[2026-05-17 19:50:13,117] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Gigandes Bill 1', Game: 'Fiend Hunter', ID: 593
+[2026-05-17 19:50:13,120] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Gigandes Bill 2', Game: 'Fiend Hunter', ID: 594
+[2026-05-17 19:50:13,122] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Black Boxes (Stage 4-1)', Game: 'Fiend Hunter', ID: 595
+[2026-05-17 19:50:13,124] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Hidden Forest Village', Game: 'Fiend Hunter', ID: 596
+[2026-05-17 19:50:13,126] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'In Tears... (Seena)', Game: 'Fiend Hunter', ID: 597
+[2026-05-17 19:50:13,129] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ouni 1', Game: 'Fiend Hunter', ID: 598
+[2026-05-17 19:50:13,131] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ouni 2', Game: 'Fiend Hunter', ID: 599
+[2026-05-17 19:50:13,133] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'I'm Fine (Stage 4-2)', Game: 'Fiend Hunter', ID: 600
+[2026-05-17 19:50:13,135] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ouni's Death', Game: 'Fiend Hunter', ID: 601
+[2026-05-17 19:50:13,138] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Serina's Mansion', Game: 'Fiend Hunter', ID: 602
+[2026-05-17 19:50:13,140] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tension', Game: 'Fiend Hunter', ID: 603
+[2026-05-17 19:50:13,142] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Serina Kidnapped', Game: 'Fiend Hunter', ID: 604
+[2026-05-17 19:50:13,144] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Water Dancers (Stage 5-1)', Game: 'Fiend Hunter', ID: 605
+[2026-05-17 19:50:13,147] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Cecilia (Seena's Confession)', Game: 'Fiend Hunter', ID: 606
+[2026-05-17 19:50:13,149] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Winter Presence III (Stage 5-2)', Game: 'Fiend Hunter', ID: 607
+[2026-05-17 19:50:13,152] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Come On, Pure Lady (Stage 5-3)', Game: 'Fiend Hunter', ID: 608
+[2026-05-17 19:50:13,154] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Smeranich', Game: 'Fiend Hunter', ID: 609
+[2026-05-17 19:50:13,157] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: 'Fiend Hunter', ID: 610
+[2026-05-17 19:50:13,159] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bander (Alt.)', Game: 'Fiend Hunter', ID: 611
+[2026-05-17 19:50:13,161] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Unknown 1', Game: 'Fiend Hunter', ID: 612
+[2026-05-17 19:50:13,163] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Unknown 2', Game: 'Fiend Hunter', ID: 613
+[2026-05-17 19:50:13,165] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Fiend_Hunter_(PC_Engine_Super_CD-ROM2).zip member=18 Hidden Forest Village.vgz
+[2026-05-17 19:50:13,167] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_avx5mg_o.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_sjn11v1t.vgm']
+[2026-05-17 19:50:13,202] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_avx5mg_o.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_sjn11v1t.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:50:13,207] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_avx5mg_o.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_sjn11v1t.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:50:13,208] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:50:16,912] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Takurou's Room 1', Game: 'Doukyusei', ID: 614
+[2026-05-17 19:50:16,915] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Takurou's Room 2', Game: 'Doukyusei', ID: 615
+[2026-05-17 19:50:16,917] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Takurou's Room 3', Game: 'Doukyusei', ID: 616
+[2026-05-17 19:50:16,920] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tarou Hazama BGM', Game: 'Doukyusei', ID: 617
+[2026-05-17 19:50:16,922] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ako Saitou BGM', Game: 'Doukyusei', ID: 618
+[2026-05-17 19:50:16,924] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Chiharu Sakuma BGM', Game: 'Doukyusei', ID: 619
+[2026-05-17 19:50:16,926] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Hiromi Tamachi BGM', Game: 'Doukyusei', ID: 620
+[2026-05-17 19:50:16,929] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Kaori Naruse BGM', Game: 'Doukyusei', ID: 621
+[2026-05-17 19:50:16,931] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Kurumi Nishina BGM', Game: 'Doukyusei', ID: 622
+[2026-05-17 19:50:16,933] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mai, Kyouko Sakuragi BGM', Game: 'Doukyusei', ID: 623
+[2026-05-17 19:50:16,935] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Mako Saitou BGM', Game: 'Doukyusei', ID: 624
+[2026-05-17 19:50:16,938] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Miho Suzuki BGM', Game: 'Doukyusei', ID: 625
+[2026-05-17 19:50:16,940] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Misa Tanaka BGM', Game: 'Doukyusei', ID: 626
+[2026-05-17 19:50:16,942] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Natsuko Masaki BGM', Game: 'Doukyusei', ID: 627
+[2026-05-17 19:50:16,944] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Reiko Shingyouji BGM', Game: 'Doukyusei', ID: 628
+[2026-05-17 19:50:16,947] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Satomi Kurokawa BGM', Game: 'Doukyusei', ID: 629
+[2026-05-17 19:50:16,949] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Yayoi Kusanagi BGM', Game: 'Doukyusei', ID: 630
+[2026-05-17 19:50:16,951] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Midori Takano BGM 1', Game: 'Doukyusei', ID: 631
+[2026-05-17 19:50:16,953] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Masumi Hori BGM', Game: 'Doukyusei', ID: 632
+[2026-05-17 19:50:16,956] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Teacher Yoshiko Serizawa BGM', Game: 'Doukyusei', ID: 633
+[2026-05-17 19:50:16,959] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Visual Scene 1', Game: 'Doukyusei', ID: 634
+[2026-05-17 19:50:16,961] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Visual Scene 2', Game: 'Doukyusei', ID: 635
+[2026-05-17 19:50:16,963] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Visual Scene 3', Game: 'Doukyusei', ID: 636
+[2026-05-17 19:50:16,966] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Visual Scene 4', Game: 'Doukyusei', ID: 637
+[2026-05-17 19:50:16,968] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Panic!', Game: 'Doukyusei', ID: 638
+[2026-05-17 19:50:16,970] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Old Woman Fortune Teller', Game: 'Doukyusei', ID: 639
+[2026-05-17 19:50:16,972] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Old Man 4th Dimension', Game: 'Doukyusei', ID: 640
+[2026-05-17 19:50:16,975] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ghost Mansion (Haunted House)', Game: 'Doukyusei', ID: 641
+[2026-05-17 19:50:16,977] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Disco ~ Midori Takano BGM 2', Game: 'Doukyusei', ID: 642
+[2026-05-17 19:50:16,979] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Movement (Town)', Game: 'Doukyusei', ID: 643
+[2026-05-17 19:50:16,981] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Movement (Inside School)', Game: 'Doukyusei', ID: 644
+[2026-05-17 19:50:16,984] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Date with Natsuko (Amusement Park)', Game: 'Doukyusei', ID: 645
+[2026-05-17 19:50:16,986] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Amusement Park BGM', Game: 'Doukyusei', ID: 646
+[2026-05-17 19:50:16,988] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Quiz Brothers', Game: 'Doukyusei', ID: 647
+[2026-05-17 19:50:16,990] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'August 31st', Game: 'Doukyusei', ID: 648
+[2026-05-17 19:50:16,993] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Date at the Yabuki Park', Game: 'Doukyusei', ID: 649
+[2026-05-17 19:50:16,995] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Lonely Summer Vacation (Graduation BGM)', Game: 'Doukyusei', ID: 650
+[2026-05-17 19:50:16,997] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'After the Visual Scene', Game: 'Doukyusei', ID: 651
+[2026-05-17 19:50:16,999] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Confession - Success SFX', Game: 'Doukyusei', ID: 652
+[2026-05-17 19:50:17,002] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Confession - Success BGM', Game: 'Doukyusei', ID: 653
+[2026-05-17 19:50:17,004] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Confession - Friend', Game: 'Doukyusei', ID: 654
+[2026-05-17 19:50:17,006] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Confession - Failure', Game: 'Doukyusei', ID: 655
+[2026-05-17 19:50:17,008] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Train Station', Game: 'Doukyusei', ID: 656
+[2026-05-17 19:50:17,011] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Chime', Game: 'Doukyusei', ID: 657
+[2026-05-17 19:50:17,013] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Money Received', Game: 'Doukyusei', ID: 658
+[2026-05-17 19:50:17,015] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'xx Train Station (In-game loop)', Game: 'Doukyusei', ID: 659
+[2026-05-17 19:50:17,017] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Doukyusei_(PC_Engine_Super_CD-ROM2).zip member=05 Ako Saitou BGM.vgz
+[2026-05-17 19:50:17,019] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_eamdzg3z.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_tyl6u6_e.vgm']
+[2026-05-17 19:50:17,054] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_eamdzg3z.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_tyl6u6_e.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:50:17,058] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_eamdzg3z.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_tyl6u6_e.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:50:17,059] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:50:20,621] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Demo', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 660
+[2026-05-17 19:50:20,623] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Coin', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 661
+[2026-05-17 19:50:20,625] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'BGM 1', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 662
+[2026-05-17 19:50:20,628] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Cattle Mutilation', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 663
+[2026-05-17 19:50:20,630] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'BGM 2', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 664
+[2026-05-17 19:50:20,632] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss 1 Intro', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 665
+[2026-05-17 19:50:20,634] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss 1', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 666
+[2026-05-17 19:50:20,637] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'BGM 3', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 667
+[2026-05-17 19:50:20,639] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'BGM 4', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 668
+[2026-05-17 19:50:20,641] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss 2 Intro', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 669
+[2026-05-17 19:50:20,643] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss 2', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 670
+[2026-05-17 19:50:20,646] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'BGM 5', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 671
+[2026-05-17 19:50:20,649] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss 3', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 672
+[2026-05-17 19:50:20,651] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ending', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 673
+[2026-05-17 19:50:20,653] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Staff Roll', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 674
+[2026-05-17 19:50:20,656] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Name Entry', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 675
+[2026-05-17 19:50:20,658] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zone Select 1', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 676
+[2026-05-17 19:50:20,660] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zone Select 2', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 677
+[2026-05-17 19:50:20,662] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Unused 1', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 678
+[2026-05-17 19:50:20,665] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Unused 2', Game: 'Super Space Invaders '91 / Majestic Twelve: The Space Invaders Part IV', ID: 679
+[2026-05-17 19:50:20,666] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Super_Space_Invaders_'91_(F2_System).zip member=07 Boss 1.vgz
+[2026-05-17 19:50:20,668] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMStream: ['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_zt6_qf1v.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_t2vmnt1z.vgm']
+[2026-05-17 19:50:20,705] [ERROR] [ChiptunePalace] - AudioEngine: VGMStream transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_zt6_qf1v.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_t2vmnt1z.vgm']' returned non-zero exit status 1.. Falling back to mock synth.
+[2026-05-17 19:50:20,709] [WARNING] [ChiptunePalace] - Playback warning: Transcoding failed for .vgm: Command '['D:\\CHIPTUNEPALACE\\chiptunepalace\\vendor\\bin\\vgmstream-cli.exe', '-o', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_transcode_zt6_qf1v.wav', 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\cp_zip_t2vmnt1z.vgm']' returned non-zero exit status 1.. Playing mock synth fallback.
+[2026-05-17 19:50:20,710] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:50:22,762] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:54:14,072] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:54:14,091] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:54:14,091] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Users\Administrator\.gemini\antigravity\scratch\test.vgm member=None
+[2026-05-17 19:54:14,091] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:54:14,409] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\Administrator\.gemini\antigravity\scratch\test.wav
+[2026-05-17 19:54:14,410] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:54:17,415] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:54:22,989] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:54:23,008] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:54:23,008] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Users\Administrator\.gemini\antigravity\scratch\test.vgm member=None
+[2026-05-17 19:54:23,008] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:54:23,317] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\Administrator\.gemini\antigravity\scratch\test.wav
+[2026-05-17 19:54:23,317] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:54:26,322] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:54:33,419] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: d:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:54:33,437] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:54:33,438] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Users\Administrator\.gemini\antigravity\scratch\test.vgm member=None
+[2026-05-17 19:54:33,438] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:54:33,746] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\Administrator\.gemini\antigravity\scratch\test.wav
+[2026-05-17 19:54:33,747] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:54:36,752] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:55:11,382] [INFO] [ChiptunePalace] - DebugService initialized. Log file path: D:\CHIPTUNEPALACE\chiptunepalace_debug.log
+[2026-05-17 19:55:11,382] [INFO] [ChiptunePalace] - Global unhandled exception hook installed successfully.
+[2026-05-17 19:55:11,382] [INFO] [ChiptunePalace] - --- Chiptune Palace Application Startup ---
+[2026-05-17 19:55:11,382] [INFO] [ChiptunePalace] - DatabaseManager: Initializing database at path=D:\CHIPTUNEPALACE\chiptunepalace/db/chiptunepalace.db
+[2026-05-17 19:55:11,393] [INFO] [ChiptunePalace] - DatabaseManager: WAL mode active.
+[2026-05-17 19:55:11,409] [INFO] [ChiptunePalace] - AudioEngine: VLC Instance initialized successfully.
+[2026-05-17 19:55:11,424] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:55:11,424] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 100%
+[2026-05-17 19:55:20,475] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Black_Tiger_(Arcade).zip member=03 Ancient Cave (Round 1).vgz
+[2026-05-17 19:55:20,476] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:55:22,085] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_gluucy14.wav
+[2026-05-17 19:55:22,085] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:55:32,917] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 50%)
+[2026-05-17 19:55:32,917] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 50%
+[2026-05-17 19:55:33,601] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 46%)
+[2026-05-17 19:55:33,601] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 46%
+[2026-05-17 19:55:33,821] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 45%)
+[2026-05-17 19:55:33,821] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 45%
+[2026-05-17 19:55:33,885] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 44%)
+[2026-05-17 19:55:33,885] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 44%
+[2026-05-17 19:55:36,329] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 57%)
+[2026-05-17 19:55:36,330] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 57%
+[2026-05-17 19:55:36,413] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 58%)
+[2026-05-17 19:55:36,413] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 58%
+[2026-05-17 19:55:36,517] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 60%)
+[2026-05-17 19:55:36,517] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 60%
+[2026-05-17 19:55:36,557] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 61%)
+[2026-05-17 19:55:36,557] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 61%
+[2026-05-17 19:55:36,621] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 62%)
+[2026-05-17 19:55:36,621] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 62%
+[2026-05-17 19:55:57,591] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Library item double-clicked (Type: track, Text: '[LOCAL] Opening.vgz')
+[2026-05-17 19:55:57,592] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Mega_Man_2_(NES).zip member=01 Opening.vgz
+[2026-05-17 19:55:57,595] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:55:58,400] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_od50demm.wav
+[2026-05-17 19:55:58,403] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:56:12,216] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Capcom Logo', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 680
+[2026-05-17 19:56:12,218] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Theme of Pocket Fighter', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 681
+[2026-05-17 19:56:12,220] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Player Select', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 682
+[2026-05-17 19:56:12,224] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Character Introduction Demo', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 683
+[2026-05-17 19:56:12,226] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'VS', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 684
+[2026-05-17 19:56:12,228] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Bar - «Maximum»', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 685
+[2026-05-17 19:56:12,230] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Toy Store - «Dhalsim»', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 686
+[2026-05-17 19:56:12,233] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ski Resort - «La Menkoi»', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 687
+[2026-05-17 19:56:12,235] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Amazon - Float Rental Shop «Safuriru»', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 688
+[2026-05-17 19:56:12,237] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'China Town - Yuan Fandian Dafansheng', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 689
+[2026-05-17 19:56:12,239] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tessa's Room - Genius Sanctuary', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 690
+[2026-05-17 19:56:12,242] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Outside Makai - Moonlight Dark Castle', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 691
+[2026-05-17 19:56:12,245] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Inside Makai - The Move of the Devil', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 692
+[2026-05-17 19:56:12,247] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Winner', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 693
+[2026-05-17 19:56:12,249] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Here Comes A New Challenger!', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 694
+[2026-05-17 19:56:12,252] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Boss Message Demo', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 695
+[2026-05-17 19:56:12,254] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ryu Ending 1', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 696
+[2026-05-17 19:56:12,256] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ryu Ending 2', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 697
+[2026-05-17 19:56:12,258] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ken Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 698
+[2026-05-17 19:56:12,261] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Chun-Li Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 699
+[2026-05-17 19:56:12,264] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Sakura Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 700
+[2026-05-17 19:56:12,266] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Morrigan Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 701
+[2026-05-17 19:56:12,268] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Hsien-Ko Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 702
+[2026-05-17 19:56:12,271] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Felicia Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 703
+[2026-05-17 19:56:12,273] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tessa Ending 1', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 704
+[2026-05-17 19:56:12,275] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Tessa Ending 2', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 705
+[2026-05-17 19:56:12,277] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ibuki Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 706
+[2026-05-17 19:56:12,280] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Zangief Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 707
+[2026-05-17 19:56:12,282] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Dan Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 708
+[2026-05-17 19:56:12,285] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Akuma Ending', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 709
+[2026-05-17 19:56:12,287] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Staff Roll', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 710
+[2026-05-17 19:56:12,290] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Continue', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 711
+[2026-05-17 19:56:12,292] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 712
+[2026-05-17 19:56:12,294] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ranking', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 713
+[2026-05-17 19:56:12,296] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Theme of Pocket Fighter (Original Version)', Game: 'Pocket Fighter (J) / Super Gem Fighter Mini Mix (U)', ID: 714
+[2026-05-17 19:56:12,297] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Super_Gem_Fighter_Mini_Mix_(CP_System_II).zip member=25 Tessa Ending 2.vgz
+[2026-05-17 19:56:12,300] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:56:12,803] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_1ifbavnv.wav
+[2026-05-17 19:56:12,806] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:56:30,707] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 73%)
+[2026-05-17 19:56:30,707] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 73%
+[2026-05-17 19:56:30,904] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 74%)
+[2026-05-17 19:56:30,904] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 74%
+[2026-05-17 19:56:30,936] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 75%)
+[2026-05-17 19:56:30,936] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 75%
+[2026-05-17 19:56:31,016] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Volume changed (Value: 76%)
+[2026-05-17 19:56:31,016] [INFO] [ChiptunePalace] - AudioEngine: Volume set to 76%
+[2026-05-17 19:56:37,349] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Opening', Game: '1944: The Loop Master', ID: 715
+[2026-05-17 19:56:37,352] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Credit', Game: '1944: The Loop Master', ID: 716
+[2026-05-17 19:56:37,354] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Deep Blue (Stage 1)', Game: '1944: The Loop Master', ID: 717
+[2026-05-17 19:56:37,357] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Iron Beast Warcry (Stage 2), Eagle Territory (Stage 5), Storm Fortress (Stage 10), Bell of Triumph (Stage 15)', Game: '1944: The Loop Master', ID: 718
+[2026-05-17 19:56:37,359] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Jungle Fight (Stage 3)', Game: '1944: The Loop Master', ID: 719
+[2026-05-17 19:56:37,361] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Rock Fortress (Stage 4)', Game: '1944: The Loop Master', ID: 720
+[2026-05-17 19:56:37,364] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Devil Mountain (Stage 6)', Game: '1944: The Loop Master', ID: 721
+[2026-05-17 19:56:37,367] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Nightmare Valley (Stage 7)', Game: '1944: The Loop Master', ID: 722
+[2026-05-17 19:56:37,369] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Fields of War (Stage 8)', Game: '1944: The Loop Master', ID: 723
+[2026-05-17 19:56:37,371] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Muddy Interceptor (Stage 9)', Game: '1944: The Loop Master', ID: 724
+[2026-05-17 19:56:37,373] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Oil Legion (Stage 11)', Game: '1944: The Loop Master', ID: 725
+[2026-05-17 19:56:37,376] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Leviathan's Mouth (Stage 12)', Game: '1944: The Loop Master', ID: 726
+[2026-05-17 19:56:37,378] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Battle of Green Field (Stage 13)', Game: '1944: The Loop Master', ID: 727
+[2026-05-17 19:56:37,380] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'The Last Duel (Stage 14)', Game: '1944: The Loop Master', ID: 728
+[2026-05-17 19:56:37,383] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Targets', Game: '1944: The Loop Master', ID: 729
+[2026-05-17 19:56:37,385] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Stage Clear', Game: '1944: The Loop Master', ID: 730
+[2026-05-17 19:56:37,388] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ending', Game: '1944: The Loop Master', ID: 731
+[2026-05-17 19:56:37,390] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Continue', Game: '1944: The Loop Master', ID: 732
+[2026-05-17 19:56:37,392] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Game Over', Game: '1944: The Loop Master', ID: 733
+[2026-05-17 19:56:37,395] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Ranking', Game: '1944: The Loop Master', ID: 734
+[2026-05-17 19:56:37,397] [INFO] [ChiptunePalace] - DatabaseManager: Added new track. Title: 'Unused', Game: '1944: The Loop Master', ID: 735
+[2026-05-17 19:56:37,399] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\1944_-_The_Loop_Master_(CP_System_II).zip member=07 Devil Mountain (Stage 6).vgz
+[2026-05-17 19:56:37,401] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:56:38,507] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_kghns1gm.wav
+[2026-05-17 19:56:38,508] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:56:52,394] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Next track button clicked
+[2026-05-17 19:56:52,394] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\1944_-_The_Loop_Master_(CP_System_II).zip member=07 Devil Mountain (Stage 6).vgz
+[2026-05-17 19:56:52,396] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:56:53,501] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_16ouaz2f.wav
+[2026-05-17 19:56:53,505] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:56:55,754] [INFO] [ChiptunePalace] - [INTERACTION] User triggered: Play/Pause button clicked
+[2026-05-17 19:56:55,754] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
+[2026-05-17 19:56:55,759] [INFO] [ChiptunePalace] - AudioEngine: Loading track path=C:\Windows\system32\downloads\Mega_Man_2_(NES).zip member=01 Opening.vgz
+[2026-05-17 19:56:55,759] [INFO] [ChiptunePalace] - AudioEngine: Transcoding .vgm using VGMPlay
+[2026-05-17 19:56:56,565] [INFO] [ChiptunePalace] - AudioEngine: VGMPlay transcoding successful: C:\Users\ADMINI~1\AppData\Local\Temp\cp_zip_s9d67sox.wav
+[2026-05-17 19:56:56,565] [INFO] [ChiptunePalace] - AudioEngine: Playback started
+[2026-05-17 19:56:59,296] [INFO] [ChiptunePalace] - AudioEngine: Playback stopped
