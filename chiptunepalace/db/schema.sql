@@ -1,32 +1,23 @@
--- Database Schema for Chiptunes Player
--- Tracks music and stores metadata.
+﻿-- CHIPTUNEPALACE DATABASE SCHEMA
+-- SQLite WAL Mode enabled
 
 CREATE TABLE IF NOT EXISTS tracks (
-    track_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     artist TEXT,
-    duration_seconds INTEGER,
-    file_path TEXT NOT NULL,  -- Absolute path to file or ZIP
-    is_zipped INTEGER DEFAULT 0,
-    member_name TEXT,         -- Name inside ZIP if is_zipped=1
-    fingerprint TEXT UNIQUE,
-    source_url TEXT,
-    album TEXT,
-    genre TEXT,
-    UNIQUE(file_path, member_name)
+    file_path TEXT NOT NULL UNIQUE,
+    format TEXT,
+    duration REAL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS playlists (
-    playlist_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS settings (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS playlist_songs (
-    playlist_song_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    playlist_id INTEGER NOT NULL,
-    track_id INTEGER NOT NULL,
-    order_index INTEGER,
-    FOREIGN KEY (playlist_id) REFERENCES playlists(playlist_id),
-    FOREIGN KEY (track_id) REFERENCES tracks(track_id),
-    UNIQUE (playlist_id, track_id)
+CREATE TABLE IF NOT EXISTS playlist (
+    track_id INTEGER,
+    position INTEGER,
+    FOREIGN KEY (track_id) REFERENCES tracks(id)
 );
