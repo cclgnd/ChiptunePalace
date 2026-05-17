@@ -31,7 +31,8 @@ class DownloadThread(QThread):
                 os.makedirs(self.download_dir)
 
             self.status.emit(self.job_id, "CONNECTING...")
-            response = requests.get(self.url, stream=True, timeout=30)
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            response = requests.get(self.url, stream=True, headers=headers, timeout=30)
             response.raise_for_status()
 
             total_size = int(response.headers.get('content-length', 0))
