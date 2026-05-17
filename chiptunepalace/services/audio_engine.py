@@ -3,6 +3,8 @@ import os
 import tempfile
 import vlc
 from PySide6.QtCore import QObject, Signal, QUrl
+from audio.core.format_detector import is_emulation_supported
+from audio.core.AudioEngine import AudioEngine as EmulatedAudioEngine
 
 class PlaybackState:
     """Defines the possible states of the player."""
@@ -84,6 +86,19 @@ class AudioEngine(QObject):
         self._temp_path = None
         self._volume = 80
         
+        self._use_emulation = False
+        try:
+            self.emulated_engine = EmulatedAudioEngine()
+            self.emulated_engine.playback_state_changed.connect(self._on_emulated_state_changed)
+            self.emulated_engine.position_changed.connect(self._on_emulated_position_changed)
+            self.emulated_engine.duration_changed.connect(self._on_emulated_duration_changed)
+            self.emulated_engine.track_finished.connect(self._on_emulated_track_finished)
+            self.emulated_engine.error_occurred.connect(self._on_emulated_error)
+            self.emulated_engine.warning_occurred.connect(self._on_emulated_warning)
+        except Exception as e:
+            self.debug_service.log_error(f"AudioEngine: Emulated engine initialization failed: {e}")
+            self.emulated_engine = None
+        
         # Setup event manager for end of track
         if self.player:
             self.event_manager = self.player.event_manager()
@@ -92,6 +107,31 @@ class AudioEngine(QObject):
             self.event_manager.event_attach(vlc.EventType.MediaPlayerLengthChanged, self._on_length_changed)
             self.event_manager.event_attach(vlc.EventType.MediaPlayerPlaying, self._on_playing)
             self.event_manager.event_attach(vlc.EventType.MediaPlayerEncounteredError, self._on_error)
+
+    def _on_emulated_state_changed(self, state):
+        if self._use_emulation:
+            self._state = state
+            self.playback_state_changed.emit(state)
+
+    def _on_emulated_position_changed(self, pos_sec):
+        if self._use_emulation:
+            self.position_changed.emit(pos_sec)
+
+    def _on_emulated_duration_changed(self, dur_sec):
+        if self._use_emulation:
+            self.duration_changed.emit(dur_sec)
+
+    def _on_emulated_track_finished(self):
+        if self._use_emulation:
+            self.track_finished.emit()
+
+    def _on_emulated_error(self, err):
+        if self._use_emulation:
+            self.error_occurred.emit(err)
+
+    def _on_emulated_warning(self, warn):
+        if self._use_emulation:
+            self.warning_occurred.emit(warn)
 
     def _on_position_changed(self, event):
         if self.player:
@@ -422,6 +462,26 @@ class AudioEngine(QObject):
 
     def load_track(self, track_path: str, member_name: str = None):
         """Loads a new track source."""
+        self.stop()
+        
+        # Check if emulation is supported and engine is initialized
+        if self.emulated_engine and is_emulation_supported(track_path, member_name):
+            self.debug_service.log_info(f"AudioEngine: Loading track using Emulated Engine path={track_path} member={member_name}")
+            try:
+                success = self.emulated_engine.load_track(track_path, member_name)
+                if success:
+                    self._use_emulation = True
+                    self._current_track_path = track_path
+                    self.emulated_engine.set_volume(self._volume)
+                    print(f"AudioEngine (Emulation): Loaded track {track_path} (member: {member_name})")
+                    return True
+                else:
+                    self.debug_service.log_warning("AudioEngine: Emulated Engine failed to load, falling back to VLC.")
+            except Exception as e:
+                self.debug_service.log_error(f"AudioEngine: Emulated Engine failed with error: {e}. Falling back to VLC.")
+        
+        # Legacy VLC transcode-and-play fallback
+        self._use_emulation = False
         if not self._available:
             self.debug_service.log_error("AudioEngine: Cannot load track, VLC is not available")
             self.error_occurred.emit("VLC not available")
@@ -433,7 +493,7 @@ class AudioEngine(QObject):
             media = self.vlc_instance.media_new_path(actual_path)
             self.player.set_media(media)
             self._current_track_path = track_path
-            print(f"AudioEngine: Loaded track {track_path} (member: {member_name})")
+            print(f"AudioEngine (VLC): Loaded track {track_path} (member: {member_name})")
             return True
         except Exception as e:
             self.debug_service.log_error(f"AudioEngine: Failed to load track: {e}")
@@ -442,7 +502,9 @@ class AudioEngine(QObject):
 
     def play(self):
         """Starts playback."""
-        if self.player:
+        if self._use_emulation:
+            self.emulated_engine.play()
+        elif self.player:
             self.debug_service.log_info("AudioEngine: Playback started")
             self.player.play()
             self.player.audio_set_volume(self._volume)
@@ -451,7 +513,9 @@ class AudioEngine(QObject):
         
     def pause(self):
         """Pauses the current playback."""
-        if self.player and self._state == PlaybackState.PLAYING:
+        if self._use_emulation:
+            self.emulated_engine.pause()
+        elif self.player and self._state == PlaybackState.PLAYING:
             self.debug_service.log_info("AudioEngine: Playback paused")
             self.player.pause()
             self._state = PlaybackState.PAUSED
@@ -459,6 +523,8 @@ class AudioEngine(QObject):
 
     def stop(self):
         """Stops playback and resets state."""
+        if self.emulated_engine:
+            self.emulated_engine.stop()
         if self.player:
             self.debug_service.log_info("AudioEngine: Playback stopped")
             self.player.stop()
@@ -469,21 +535,39 @@ class AudioEngine(QObject):
     def set_volume(self, volume):
         self._volume = max(0, min(100, int(volume)))
         self.debug_service.log_info(f"AudioEngine: Volume set to {self._volume}%")
+        if self.emulated_engine:
+            self.emulated_engine.set_volume(self._volume)
         if self.player:
             self.player.audio_set_volume(self._volume)
         self.volume_changed.emit(self._volume)
 
     def get_time(self):
         """Returns current time in seconds."""
-        if self.player:
+        if self._use_emulation:
+            return self.emulated_engine.get_time()
+        elif self.player:
             return self.player.get_time() / 1000.0
         return 0.0
 
     def set_time(self, seconds):
         """Seeks to the given time in seconds."""
         self.debug_service.log_info(f"AudioEngine: Seek requested to {seconds}s")
-        if self.player:
+        if self._use_emulation:
+            self.emulated_engine.set_time(seconds)
+        elif self.player:
             self.player.set_time(int(seconds * 1000))
 
-    def __del__(self):
+    def close(self):
+        """Cleanly releases all active player resources."""
+        if hasattr(self, 'emulated_engine') and self.emulated_engine:
+            try:
+                self.emulated_engine.close()
+            except:
+                pass
         self._cleanup_temp()
+
+    def __del__(self):
+        try:
+            self.close()
+        except:
+            pass
