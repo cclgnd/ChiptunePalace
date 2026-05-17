@@ -20,10 +20,16 @@ class QueueManager:
 
     def load_playlist(self, track_ids: List[int]):
         """Sets the current playlist queue."""
-        self.original_playlist = track_ids
+        sanitized = []
+        for tid in track_ids:
+            try:
+                sanitized.append(int(tid))
+            except (ValueError, TypeError):
+                sanitized.append(tid)
+        self.original_playlist = sanitized
         self._update_queue()
         self.current_index = -1
-        print(f"QueueManager: Playlist loaded with {len(track_ids)} tracks.")
+        print(f"QueueManager: Playlist loaded with {len(sanitized)} tracks.")
         
     def _update_queue(self):
         """Updates current_queue based on shuffle state."""
@@ -81,9 +87,26 @@ class QueueManager:
         next_id = self.current_queue[self.current_index]
         self._play_track_by_id(next_id)
 
-    def _play_track_by_id(self, track_id: int):
+    def _play_track_by_id(self, track_id: int, _attempted=None):
+        if _attempted is None:
+            _attempted = set()
+            
+        if track_id in _attempted:
+            print("QueueManager: All tracks in queue failed to load. Stopping playback.")
+            self.audio_engine.stop()
+            return
+            
+        _attempted.add(track_id)
         print(f"QueueManager: Loading track ID: {track_id}")
-        track_details = self.track_service.get_track_by_id(track_id)
+        
+        try:
+            db_id = int(track_id)
+        except (ValueError, TypeError):
+            print(f"QueueManager: Invalid track ID format: {track_id}")
+            self._advance_on_failure(_attempted)
+            return
+
+        track_details = self.track_service.get_track_by_id(db_id)
         if track_details and track_details.get('file_path'):
             path = track_details['file_path']
             member = track_details.get('member_name')
@@ -92,15 +115,30 @@ class QueueManager:
                 self.audio_engine.play()
             else:
                 print("QueueManager: Failed to load track file.")
+                self._advance_on_failure(_attempted)
         else:
             print(f"QueueManager: Track {track_id} not found or path missing.")
-            # Try next if this one failed
-            self.advance_to_next_track()
+            self._advance_on_failure(_attempted)
+
+    def _advance_on_failure(self, attempted):
+        if not self.current_queue:
+            return
+        self.current_index += 1
+        if self.current_index >= len(self.current_queue):
+            self.current_index = 0
+        next_id = self.current_queue[self.current_index]
+        self._play_track_by_id(next_id, attempted)
 
     def start_playback(self, initial_track_id: int = None):
         """Initiates playback from a specific track or the beginning."""
         if not self.current_queue and self.original_playlist:
             self._update_queue()
+
+        if initial_track_id is not None:
+            try:
+                initial_track_id = int(initial_track_id)
+            except (ValueError, TypeError):
+                pass
 
         if initial_track_id is not None and initial_track_id in self.current_queue:
             self.current_index = self.current_queue.index(initial_track_id)
