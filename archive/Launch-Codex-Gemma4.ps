@@ -1,0 +1,287 @@
+# Launch Codex Desktop App with Ollama + Gemma 4
+# Proyecto: D:\CHIPTUNEPALACE
+
+<#
+.SYNOPSIS
+    Script de lanzamiento para Codex Desktop App integrado con Ollama y el modelo Gemma 4.
+    
+.DESCRIPTION
+    Este script realiza las siguientes tareas:
+    1. Verifica que la ruta del proyecto Chiptune Palace exista.
+    2. Asegura que Ollama esté instalado y configurado en el PATH.
+    3. Inicia el servidor de Ollama en segundo plano si no está corriendo.
+    4. Verifica si el modelo 'gemma4' está disponible localmente y lo descarga si es necesario.
+    5. Ejecuta Codex configurado para usar dicho modelo y abrir el workspace actual.
+
+.PARAMETER ProjectPath
+    Ruta absoluta al directorio del proyecto.
+    
+.PARAMETER Model
+    Nombre del modelo en Ollama (por defecto 'gemma4').
+#>
+# --- 0. Preparación del Entorno ---
+Write-Host "[*] Cerrando instancias activas de Codex para aplicar cambios..." -ForegroundColor Cyan
+$processes = Get-Process | Where-Object { $_.Name -like "*Codex*" -or $_.Name -like "*codex*" }
+if ($processes) {
+    $processes | Stop-Process -Force -ErrorAction SilentlyContinue
+    Write-Host "[+] Instancias cerradas." -ForegroundColor Green
+    Start-Sleep -Seconds 2
+} else {
+    Write-Host "[+] No se detectaron instancias activas." -ForegroundColor Gray
+}
+# --- Configuración ---
+$ProjectPath = "D:\CHIPTUNEPALACE"
+$BaseModel = $null 
+$AgentModel = $null
+$ConfigDir = "$env:USERPROFILE\.codex"
+$ConfigPath = Join-Path $ConfigDir "config.toml"
+$CatalogPath = Join-Path $ConfigDir "ollama-launch-models.json"
+$ToolsPath = Join-Path $ProjectPath "tools.json"
+
+# --- 0.5 Verificación de Codex CLI ---
+Write-Host "[*] Verificando Codex CLI..." -ForegroundColor Cyan
+if (-not (Get-Command codex -ErrorAction SilentlyContinue)) {
+    Write-Host "[!] Codex CLI no encontrado. Intentando instalar vía npm..." -ForegroundColor Yellow
+    npm install -g @openai/codex
+}
+
+# --- 1. Verificación de Requisitos ---
+if (-not (Test-Path $ProjectPath)) {
+    Write-Host "[-] Error: No se encontró la ruta del proyecto en $ProjectPath" -ForegroundColor Red
+    exit 1
+}
+
+if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
+    Write-Host "[-] Error: No se encontró el comando 'ollama'. Asegúrate de que Ollama esté instalado (v0.24.0+)." -ForegroundColor Red
+    exit 1
+}
+
+# --- 2. Gestión del Servidor Ollama ---
+Write-Host "[*] Comprobando servidor Ollama..." -ForegroundColor Cyan
+try {
+    Invoke-RestMethod -Uri "http://127.0.0.1:11434/api/tags" -Method Get -TimeoutSec 3 | Out-Null
+    Write-Host "[+] Ollama está activo." -ForegroundColor Green
+} catch {
+    Write-Host "[!] El servidor Ollama no está respondiendo. Iniciando..." -ForegroundColor Yellow
+    Start-Process -FilePath "ollama" -ArgumentList "serve" -WindowStyle Minimized
+    Start-Sleep -Seconds 8 
+}
+
+# --- 2.5 Selección de Modelo ---
+Write-Host "[*] Obteniendo modelos disponibles en Ollama..." -ForegroundColor Cyan
+$ollamaList = ollama list
+$availableModels = $ollamaList | Select-Object -Skip 1 | ForEach-Object { 
+    $parts = $_ -split '\s+'
+    if ($parts[0]) { $parts[0] }
+} | Where-Object { $_ -and $_ -notmatch "NAME" }
+
+$IsGGUF = $false
+
+if ($availableModels.Count -eq 0) {
+    Write-Host "[!] No se encontraron modelos registrados en Ollama." -ForegroundColor Yellow
+    Write-Host "Elija una opción:" -ForegroundColor Magenta
+    Write-Host " [Q] Descargar y usar Qwen 2.5 Coder 14B (qwen2.5-coder:14b)" -ForegroundColor Blue
+    Write-Host " [G] Descargar y usar Gemma 4 (gemma4:e4b)" -ForegroundColor Green
+    Write-Host " [L] Cargar archivo GGUF local..." -ForegroundColor Cyan
+    
+    $choice = Read-Host "`nElija una opción (por defecto Q)"
+    if ([string]::IsNullOrWhiteSpace($choice)) {
+        $choice = "Q"
+    }
+} else {
+    Write-Host "`nSeleccione el modelo base para el Agente:" -ForegroundColor Magenta
+    for ($i=0; $i -lt $availableModels.Count; $i++) {
+        $color = "Gray"
+        if ($availableModels[$i] -match "gemma4") { $color = "Green" }
+        elseif ($availableModels[$i] -match "qwen") { $color = "Blue" }
+        Write-Host " [$($i+1)] " -NoNewline -ForegroundColor Cyan
+        Write-Host "$($availableModels[$i])" -ForegroundColor $color
+    }
+    Write-Host " [Q] " -NoNewline -ForegroundColor Cyan
+    Write-Host "Descargar e integrar Qwen 2.5 Coder 14B (qwen2.5-coder:14b)..." -ForegroundColor Blue
+    Write-Host " [G] " -NoNewline -ForegroundColor Cyan
+    Write-Host "Descargar e integrar Gemma 4 (gemma4:e4b)..." -ForegroundColor Green
+    Write-Host " [L] " -NoNewline -ForegroundColor Cyan
+    Write-Host "Cargar archivo GGUF local..." -ForegroundColor Cyan
+    
+    $choice = Read-Host "`nElija un número, 'Q' para Qwen, 'G' para Gemma, o 'L' para GGUF (Enter para el primero)"
+}
+
+if ($choice -eq "Q" -or $choice -eq "q") {
+    $BaseModel = "qwen2.5-coder:14b"
+    Write-Host "[+] Qwen 2.5 Coder 14B seleccionado como modelo base." -ForegroundColor Green
+} elseif ($choice -eq "G" -or $choice -eq "g") {
+    $BaseModel = "gemma4:e4b"
+    Write-Host "[+] Gemma 4 seleccionado como modelo base." -ForegroundColor Green
+} elseif ($choice -eq "L" -or $choice -eq "l") {
+    $IsGGUF = $true
+    $ggufFolder = "D:\llms"
+    $ggufFilesList = @()
+    
+    Write-Host "[*] Buscando archivos .gguf..." -ForegroundColor Cyan
+    
+    # Scan D:\llms
+    if (Test-Path $ggufFolder) {
+        Write-Host "[+] Escaneando $ggufFolder..." -ForegroundColor Gray
+        $ggufFilesList += Get-ChildItem -Path $ggufFolder -Filter "*.gguf" -File -ErrorAction SilentlyContinue
+    } else {
+        Write-Host "[!] Directorio $ggufFolder no encontrado." -ForegroundColor Yellow
+    }
+    
+    # Scan workspace
+    Write-Host "[+] Escaneando directorio del proyecto ($ProjectPath)..." -ForegroundColor Gray
+    $ggufFilesList += Get-ChildItem -Path $ProjectPath -Filter "*.gguf" -Recurse -File -ErrorAction SilentlyContinue
+    
+    # De-duplicate by FullName
+    $ggufFiles = $ggufFilesList | Group-Object FullName | ForEach-Object { $_.Group[0] }
+    
+    $ggufPath = $null
+    if ($ggufFiles.Count -gt 0) {
+        Write-Host "`nArchivos GGUF detectados:" -ForegroundColor Magenta
+        for ($i=0; $i -lt $ggufFiles.Count; $i++) {
+            Write-Host " [$($i+1)] " -NoNewline -ForegroundColor Cyan
+            Write-Host "$($ggufFiles[$i].Name) ($($ggufFiles[$i].FullName))" -ForegroundColor Gray
+        }
+        Write-Host " [C] " -NoNewline -ForegroundColor Cyan
+        Write-Host "Especificar otra ruta / arrastrar archivo..." -ForegroundColor Cyan
+        
+        $ggufChoice = Read-Host "`nSeleccione un archivo (o presione Enter para Cargar otra ruta)"
+        if ($ggufChoice -match "^\d+$" -and [int]$ggufChoice -le $ggufFiles.Count) {
+            $ggufPath = $ggufFiles[[int]$ggufChoice - 1].FullName
+        }
+    }
+    
+    if ($null -eq $ggufPath) {
+        Write-Host ""
+        Write-Host "[*] Ingrese la ruta absoluta al archivo .gguf (o arrástrelo aquí):" -ForegroundColor Magenta
+        $inputPath = Read-Host "Ruta GGUF"
+        # Clean up drag-and-drop quotes if any
+        $ggufPath = $inputPath.Trim().Trim('"').Trim("'")
+    }
+    
+    if (-not (Test-Path $ggufPath) -or ($ggufPath -notlike "*.gguf")) {
+        Write-Host "[-] Error: El archivo no existe o no es un archivo .gguf válido." -ForegroundColor Red
+        exit 1
+    }
+    
+    $BaseModel = $ggufPath
+    Write-Host "[+] Archivo GGUF seleccionado: $BaseModel" -ForegroundColor Green
+} elseif ($availableModels.Count -gt 0) {
+    if ([string]::IsNullOrWhiteSpace($choice)) { 
+        $BaseModel = $availableModels[0] 
+    } else {
+        $idx = [int]$choice - 1
+        if ($idx -ge 0 -and $idx -lt $availableModels.Count) {
+            $BaseModel = $availableModels[$idx]
+        } else {
+            Write-Host "[!] Selección inválida. Usando el primero." -ForegroundColor Yellow
+            $BaseModel = $availableModels[0]
+        }
+    }
+    Write-Host "[+] Modelo base seleccionado: $BaseModel" -ForegroundColor Green
+}
+
+# --- 2.5.5 Determinar Nombre de Agente Dinámico ---
+if ($IsGGUF) {
+    $cleanName = [System.IO.Path]::GetFileNameWithoutExtension($BaseModel).ToLower() -replace '[^a-z0-9.-]', '-'
+    $AgentModel = "$cleanName-agent"
+} else {
+    $cleanName = $BaseModel.ToLower() -replace ':', '-' -replace '[^a-z0-9.-]', '-'
+    $AgentModel = "$cleanName-agent"
+}
+
+
+# --- 2.6 Selección de Contexto ---
+$ContextOptions = @(8000, 12000, 16000, 32000, 64000, 80000, 100000)
+Write-Host "`nSeleccione el tamaño del Contexto (tokens):" -ForegroundColor Magenta
+for ($i=0; $i -lt $ContextOptions.Count; $i++) {
+    $label = "$($ContextOptions[$i] / 1000)k"
+    Write-Host " [$($i+1)] " -NoNewline -ForegroundColor Cyan
+    Write-Host "$label" -ForegroundColor Gray
+}
+
+$ctxChoice = Read-Host "`nElija un número (o presione Enter para 32k)"
+$ContextSize = 32000
+if (-not [string]::IsNullOrWhiteSpace($ctxChoice)) {
+    try {
+        $ctxIdx = [int]$ctxChoice - 1
+        if ($ctxIdx -ge 0 -and $ctxIdx -lt $ContextOptions.Count) {
+            $ContextSize = $ContextOptions[$ctxIdx]
+        } else {
+            Write-Host "[!] Selección inválida. Usando 32k." -ForegroundColor Yellow
+        }
+    } catch {
+        Write-Host "[!] Entrada no válida. Usando 32k." -ForegroundColor Yellow
+    }
+}
+
+
+# --- 3. Validación y Configuración del Agente ---
+if ($IsGGUF) {
+    Write-Host "[*] Configurando agente basado en archivo GGUF local..." -ForegroundColor Cyan
+} else {
+    Write-Host "[*] Verificando modelo base: $BaseModel" -ForegroundColor Cyan
+    if ($ollamaList -notmatch [regex]::Escape($BaseModel)) {
+        Write-Host "[!] Modelo base no encontrado en caché local. Descargando..." -ForegroundColor Yellow
+        ollama pull $BaseModel
+    }
+}
+
+Write-Host "[*] Optimizando el modelo para comportamiento de Agente ($($ContextSize / 1000)k contexto)..." -ForegroundColor Cyan
+$FromLine = if ($IsGGUF) { "FROM `"$($BaseModel.Replace('\', '/'))`"" } else { "FROM $BaseModel" }
+$ModelfileContent = @"
+$FromLine
+PARAMETER num_ctx $ContextSize
+PARAMETER temperature 0.3
+SYSTEM """
+Eres un Agente de Código experto con acceso total a las herramientas de Codex App.
+Tu objetivo es gestionar, depurar y desarrollar el proyecto en $ProjectPath.
+
+CAPACIDADES Y PERMISOS:
+1. GESTIÓN DE ARCHIVOS: Puedes leer, crear, modificar y borrar archivos en la carpeta del proyecto.
+2. ACCESO A TERMINAL: Tienes permiso para ejecutar comandos de PowerShell/Terminal para instalar dependencias o probar el código.
+3. NAVEGACIÓN: Puedes usar herramientas de búsqueda web si necesitas investigar librerías o errores.
+
+COMPORTAMIENTO ESPERADO:
+- Sé proactivo. Si detectas un error o una mejora, utiliza tus herramientas para resolverlo.
+- Usa las herramientas definidas en tools.json cuando sea necesario.
+- Mantén la integridad del código existente.
+- Explica brevemente tus cambios después de realizarlos.
+"""
+"@
+
+$TempModelfile = Join-Path $env:TEMP "GemmaAgentModelfile"
+$ModelfileContent | Out-File -FilePath $TempModelfile -Encoding utf8 -Force
+ollama create $AgentModel -f $TempModelfile | Out-Null
+Remove-Item $TempModelfile
+
+Write-Host "[+] Perfil de Agente '$AgentModel' listo para usar." -ForegroundColor Green
+
+# --- 3.5 Configuración de Variables de Entorno (Globales para la sesión) ---
+Write-Host "[*] Configurando variables de entorno para Codex CLI..." -ForegroundColor Cyan
+$env:OPENAI_API_BASE = "http://localhost:11434/v1"
+$env:OPENAI_API_KEY = "ollama"
+$env:CODEX_MODEL = $AgentModel
+
+# --- 4. Lanzamiento de Codex ---
+Set-Location $ProjectPath
+
+Write-Host ""
+Write-Host "----------------------------------------------------------" -ForegroundColor Magenta
+Write-Host "   CONFIGURANDO CODEX AGENTE - CHIPTUNE PALACE" -ForegroundColor Magenta
+Write-Host "----------------------------------------------------------" -ForegroundColor Magenta
+Write-Host " Modelo Agente: $AgentModel"
+Write-Host " Base / GGUF:   $BaseModel"
+Write-Host " Proyecto:      $ProjectPath"
+Write-Host " Contexto:      $($ContextSize / 1000)k tokens"
+Write-Host " Herramientas:  $ToolsPath"
+Write-Host "----------------------------------------------------------"
+Write-Host ""
+
+Write-Host "[>] Lanzando Codex Desktop App (GUI)..." -ForegroundColor Gray
+# Se lanza la versión de escritorio pasando el perfil al comando principal
+codex --profile ollama-launch-codex-app app
+
+Write-Host ""
+Write-Host "[OK] Sesión finalizada."
+Write-Host ""
