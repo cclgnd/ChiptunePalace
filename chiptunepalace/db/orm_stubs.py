@@ -1,201 +1,178 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, MetaData, Table, UniqueConstraint, event, text
-from sqlalchemy.orm import sessionmaker
+import os
+import hashlib
+import datetime
+from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, ForeignKey, text
+from sqlalchemy.orm import declarative_base, sessionmaker
 
-# Initialize Metadata
-metadata = MetaData()
+Base = declarative_base()
 
-# Define Tables
-tracks_table = Table('tracks', metadata,
-    Column('track_id', Integer, primary_key=True, autoincrement=True),
-    Column('title', String, nullable=False),
-    Column('artist', String),
-    Column('duration_seconds', Integer),
-    Column('file_path', String, nullable=False),
-    Column('is_zipped', Integer, default=0),
-    Column('member_name', String),
-    Column('fingerprint', String, unique=True),
-    Column('source_url', String),
-    Column('album', String),
-    Column('genre', String),
-    UniqueConstraint('file_path', 'member_name', name='uq_path_member')
-)
+class Track(Base):
+    __tablename__ = 'tracks'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    title = Column(String, nullable=False)
+    artist = Column(String)
+    console = Column(String)
+    game = Column(String)
+    file_path = Column(String, nullable=False)
+    member_name = Column(String)
+    fingerprint = Column(String)
+    source_url = Column(String)
+    format = Column(String)
+    duration = Column(Float)
+    added_at = Column(DateTime, default=datetime.datetime.utcnow)
 
-playlists_table = Table('playlists', metadata,
-    Column('playlist_id', Integer, primary_key=True, autoincrement=True),
-    Column('name', String, nullable=False, unique=True)
-)
+class Setting(Base):
+    __tablename__ = 'settings'
+    key = Column(String, primary_key=True)
+    value = Column(String, nullable=False)
 
-playlist_songs_table = Table('playlist_songs', metadata,
-    Column('playlist_song_id', Integer, primary_key=True, autoincrement=True),
-    Column('playlist_id', Integer, ForeignKey('playlists.playlist_id'), nullable=False),
-    Column('track_id', Integer, ForeignKey('tracks.track_id'), nullable=False),
-    Column('order_index', Integer),
-    UniqueConstraint('playlist_id', 'track_id', name='uq_playlist_track')
-)
-
+class PlaylistEntry(Base):
+    __tablename__ = 'playlist'
+    track_id = Column(Integer, ForeignKey('tracks.id'), primary_key=True)
+    position = Column(Integer, primary_key=True)
 
 class DatabaseManager:
+    """
+    Manages the SQLite database using SQLAlchemy in WAL mode.
+    Provides robust methods for indexing, querying, and duplicate avoidance.
+    """
     def __init__(self, db_path='chiptunepalace/db/chiptunepalace.db'):
-        try:
-            self.engine = create_engine(
-                f'sqlite:///{db_path}',
-                connect_args={"check_same_thread": False}
-            )
-
-            @event.listens_for(self.engine, "connect")
-            def set_sqlite_pragma(dbapi_connection, connection_record):
-                cursor = dbapi_connection.cursor()
-                cursor.execute("PRAGMA journal_mode=WAL")
-                cursor.close()
-
-            metadata.create_all(self.engine)
-        except Exception as e:
-            print(f"FATAL DB INIT ERROR: {e}")
-            self.engine = None
-
-    def _conn(self):
-        """Return a raw connection from the engine."""
-        if not self.engine:
-            print("FATAL: DB engine is disabled.")
-            return None
-        return self.engine.connect()
-
-    def add_track(self, title, artist, file_path, album=None, genre=None, duration=None, fingerprint=None, source_url=None, is_zipped=0, member_name=None):
-        conn = self._conn()
-        if conn is None:
-            return None
-        try:
-            # 1. Check for path + member duplicate
-            query = tracks_table.select().where(
-                (tracks_table.c.file_path == file_path) & 
-                (tracks_table.c.member_name == member_name)
-            )
-            row = conn.execute(query).fetchone()
-            if row:
-                return row[0]
-
-            # 2. Check for content duplicate (fingerprint)
-            if fingerprint:
-                row = conn.execute(
-                    tracks_table.select().where(tracks_table.c.fingerprint == fingerprint)
-                ).fetchone()
-                if row:
-                    print(f"DUPLICATE DETECTED: {title} already exists via fingerprint.")
-                    return row[0]
-
-            result = conn.execute(tracks_table.insert().values(
-                title=title, artist=artist, file_path=file_path,
-                album=album, genre=genre, duration_seconds=duration,
-                fingerprint=fingerprint, source_url=source_url,
-                is_zipped=is_zipped, member_name=member_name
-            ))
-            conn.commit()
-            return result.inserted_primary_key[0]
-        except Exception as e:
-            conn.rollback()
-            print(f"DB add_track error: {e}")
-            return None
-        finally:
-            conn.close()
-
-    def get_fingerprint(self, file_path, member_name=None):
-        """Calculates SHA-256 of the file content. Supports files inside ZIPs."""
-        import hashlib
-        import zipfile
-        try:
-            sha256_hash = hashlib.sha256()
+        # Normalize file path and handle absolute/relative path
+        # In a development workspace context, check both local and absolute paths
+        if not os.path.isabs(db_path):
+            # Check if we are running from chiptunepalace parent directory
+            # and resolve db path correctly
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            db_path = os.path.join(base_dir, db_path)
             
-            if member_name:
-                with zipfile.ZipFile(file_path, 'r') as zf:
-                    with zf.open(member_name) as f:
-                        for byte_block in iter(lambda: f.read(4096), b""):
-                            sha256_hash.update(byte_block)
-            else:
-                with open(file_path, "rb") as f:
-                    for byte_block in iter(lambda: f.read(4096), b""):
-                        sha256_hash.update(byte_block)
-            return sha256_hash.hexdigest()
-        except Exception as e:
-            print(f"Hash calculation error: {e}")
-            return None
-
-    def get_all_tracks(self):
-        conn = self._conn()
-        if conn is None:
-            return []
-        try:
-            rows = conn.execute(tracks_table.select()).fetchall()
-            # Convert each Row to a plain dict
-            columns = [c.key for c in tracks_table.columns]
-            return [dict(zip(columns, row)) for row in rows]
-        except Exception as e:
-            print(f"DB get_all_tracks error: {e}")
-            return []
-        finally:
-            conn.close()
-
-    def get_track_by_id(self, track_id):
-        conn = self._conn()
-        if conn is None:
-            return None
-        try:
-            row = conn.execute(
-                tracks_table.select().where(tracks_table.c.track_id == track_id)
-            ).fetchone()
-            if row is None:
-                return None
-            columns = [c.key for c in tracks_table.columns]
-            return dict(zip(columns, row))
-        except Exception as e:
-            print(f"DB get_track_by_id error: {e}")
-            return None
-        finally:
-            conn.close()
-
-    def get_track_by_path(self, file_path):
-        conn = self._conn()
-        if conn is None:
-            return None
-        try:
-            row = conn.execute(
-                tracks_table.select().where(tracks_table.c.file_path == file_path)
-            ).fetchone()
-            if row is None:
-                return None
-            columns = [c.key for c in tracks_table.columns]
-            return dict(zip(columns, row))
-        except Exception as e:
-            print(f"DB get_track_by_path error: {e}")
-            return None
-        finally:
-            conn.close()
-
-    def create_playlist(self, name):
-        conn = self._conn()
-        if conn is None:
-            return None
-        try:
-            result = conn.execute(playlists_table.insert().values(name=name))
+        db_dir = os.path.dirname(db_path)
+        if db_dir and not os.path.exists(db_dir):
+            os.makedirs(db_dir, exist_ok=True)
+            
+        self.db_path = db_path
+        
+        # Initialize DebugService
+        from chiptunepalace.services.debug_service import DebugService
+        self.debug_service = DebugService()
+        self.debug_service.log_info(f"DatabaseManager: Initializing database at path={db_path}")
+        
+        # SQLite connection URL
+        self.engine = create_engine(f"sqlite:///{db_path}", connect_args={"timeout": 15})
+        
+        # Enable WAL mode
+        with self.engine.connect() as conn:
+            conn.execute(text("PRAGMA journal_mode=WAL;"))
             conn.commit()
-            return result.inserted_primary_key[0]
-        except Exception:
-            conn.rollback()
-            return None
-        finally:
-            conn.close()
+            self.debug_service.log_info("DatabaseManager: WAL mode active.")
+            
+        Base.metadata.create_all(self.engine)
+        self.Session = sessionmaker(bind=self.engine)
 
-    def add_track_to_playlist(self, playlist_id, track_id, order_index=None):
-        conn = self._conn()
-        if conn is None:
-            return False
+    def get_fingerprint(self, file_path: str) -> str | None:
+        """Calculates MD5 hash of file content."""
+        if not os.path.exists(file_path):
+            return None
+        hasher = hashlib.md5()
         try:
-            conn.execute(playlist_songs_table.insert().values(
-                playlist_id=playlist_id, track_id=track_id, order_index=order_index
-            ))
-            conn.commit()
-            return True
-        except Exception:
-            conn.rollback()
-            return False
+            with open(file_path, 'rb') as f:
+                while chunk := f.read(8192):
+                    hasher.update(chunk)
+            return hasher.hexdigest()
+        except Exception as e:
+            print(f"DatabaseManager: MD5 hash failed for {file_path}: {e}")
+            return None
+
+    def get_all_tracks(self) -> list:
+        """Returns all tracks as a list of dicts."""
+        session = self.Session()
+        try:
+            tracks = session.query(Track).order_by(Track.console, Track.game, Track.title).all()
+            return [self._to_dict(t) for t in tracks]
         finally:
-            conn.close()
+            session.close()
+
+    def get_track_by_id(self, track_id: int) -> dict | None:
+        """Returns details for a single track by its ID."""
+        session = self.Session()
+        try:
+            track = session.query(Track).filter(Track.id == track_id).first()
+            return self._to_dict(track) if track else None
+        finally:
+            session.close()
+
+    def add_track(self, title: str, artist: str, file_path: str, **kwargs) -> int:
+        """
+        Adds a new track to the database, ensuring duplicate avoidance.
+        If a duplicate is found (matching fingerprint or matching file_path + member_name),
+        it returns the existing track's ID.
+        """
+        session = self.Session()
+        try:
+            fingerprint = kwargs.get('fingerprint')
+            member_name = kwargs.get('member_name')
+            
+            # 1. De-duplicate by fingerprint (if provided)
+            if fingerprint:
+                existing = session.query(Track).filter(
+                    Track.fingerprint == fingerprint,
+                    Track.member_name == member_name
+                ).first()
+                if existing:
+                    self.debug_service.log_info(f"DatabaseManager: Duplicate found by fingerprint! ID: {existing.id}")
+                    print(f"DatabaseManager: Duplicate found by fingerprint! ID: {existing.id}")
+                    # Update file path if it was empty or different (e.g. now local instead of online)
+                    if file_path and existing.file_path != file_path:
+                        existing.file_path = file_path
+                        session.commit()
+                    return existing.id
+
+            # 2. De-duplicate by file_path + member_name
+            existing = session.query(Track).filter(
+                Track.file_path == file_path,
+                Track.member_name == member_name
+            ).first()
+            if existing:
+                self.debug_service.log_info(f"DatabaseManager: Duplicate found by file path & member! ID: {existing.id}")
+                print(f"DatabaseManager: Duplicate found by file path & member! ID: {existing.id}")
+                return existing.id
+
+            # Create new track record
+            new_track = Track(
+                title=title,
+                artist=artist,
+                console=kwargs.get('console', 'Unknown Console'),
+                game=kwargs.get('game', 'Unknown Game'),
+                file_path=file_path,
+                member_name=member_name,
+                fingerprint=fingerprint,
+                source_url=kwargs.get('source_url'),
+                format=kwargs.get('format'),
+                duration=kwargs.get('duration')
+            )
+            session.add(new_track)
+            session.commit()
+            self.debug_service.log_info(f"DatabaseManager: Added new track. Title: '{title}', Game: '{new_track.game}', ID: {new_track.id}")
+            return new_track.id
+        except Exception as e:
+            session.rollback()
+            self.debug_service.log_error(f"DatabaseManager: Failed to add track: {e}")
+            print(f"DatabaseManager: Failed to add track: {e}")
+            raise e
+        finally:
+            session.close()
+
+    def _to_dict(self, track: Track) -> dict:
+        return {
+            'id': track.id,
+            'title': track.title,
+            'artist': track.artist,
+            'console': track.console,
+            'game': track.game,
+            'file_path': track.file_path,
+            'member_name': track.member_name,
+            'fingerprint': track.fingerprint,
+            'source_url': track.source_url,
+            'format': track.format,
+            'duration': track.duration,
+            'added_at': track.added_at.isoformat() if track.added_at else None
+        }
